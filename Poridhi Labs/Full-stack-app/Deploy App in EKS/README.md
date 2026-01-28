@@ -4,12 +4,12 @@ This document guides you through deploying a full-stack application with a React
 
 After we create our app, we will create a EKS Cluster in AWS.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Full-stack-app/Deploy%20App%20in%20EKS/images/image.png?raw=true)
+![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Full-stack-app/Deploy%20App%20in%20EKS/images/image.png?raw=true)
 
 
 Then we will deploy our app in the cluster by applying the manifests. 
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Full-stack-app/Deploy%20App%20in%20EKS/images/image-1.png?raw=true)
+![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Full-stack-app/Deploy%20App%20in%20EKS/images/image-1.png?raw=true)
 
 
 
@@ -1020,7 +1020,7 @@ Create the following Kubernetes manifests:
 
 2. Open the React app using the React service LoadBalancer URL.
 
-    ![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Full-stack-app/Deploy%20App%20in%20EKS/images/image-2.png?raw=true)
+    ![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Full-stack-app/Deploy%20App%20in%20EKS/images/image-2.png?raw=true)
     
 3. Test the full stack by interacting with the React frontend, which communicates with the Node.js API and MySQL database.
 
