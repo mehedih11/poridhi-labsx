@@ -7,7 +7,7 @@ In this lab, we will guide you through the creation of a basic full-stack applic
 - Both the frontend and backend are `dockerized` using Docker.
 - The `Images` are built and pushed to DockerHub using a `Makefile`.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile/images/arch2.drawio.svg)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile/images/arch2.drawio.svg)
 
 Overall Project directory:
 
@@ -48,7 +48,7 @@ cd backend
 npm init -y
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image.png?raw=true)
+![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image.png?raw=true)
 
 This will create a `package.json` file.
 
@@ -59,7 +59,7 @@ Install `express` to handle server routing.
 npm install express cors
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-1.png?raw=true)
+![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-1.png?raw=true)
 
 ### Create `index.js` for the Backend
 
@@ -284,7 +284,7 @@ all-frontend: build-frontend tag-frontend push-frontend
 ```
 - **`all-frontend` Target**: This is a combined target that calls the `build-frontend`, `tag-frontend`, and `push-frontend` targets sequentially, effectively building, tagging, and pushing the Docker image in one command.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-8.png?raw=true)
+![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-8.png?raw=true)
 
 #### Backend Section
 
@@ -313,7 +313,7 @@ all-backend: build-backend tag-backend push-backend
 ```
 - Backend build, tag, push targets work the same way as the frontend targets but for the backend image.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-10.png?raw=true)
+![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-10.png?raw=true)
 
 ```makefile
 # Run all for both frontend and backend in parallel
@@ -383,7 +383,7 @@ all: all-frontend all-backend
 ```
 Modify the `DOCKER_USERNAME`, `Image_Name` variable with your DockerHub username and image name for actual deployment.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-2.png?raw=true)
+![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-2.png?raw=true)
 
 ### How to Use:
 **First Login into Docker hub**
@@ -393,7 +393,7 @@ docker login
 ```
 Provide the credentials as needed.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-7.png?raw=true)
+![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-7.png?raw=true)
 
 **To build, tag, and push the **frontend** image:**
 
@@ -401,7 +401,7 @@ Provide the credentials as needed.
 make all-frontend
 ```
 
-![](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-16.png)
+![](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-16.png)
 
 **To build, tag, and push the **backend** image:**
 
@@ -409,7 +409,7 @@ make all-frontend
 make all-backend
 ```
 
-![](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-17.png)
+![](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-17.png)
 
 **To build, tag, and push **both** images in parallel:**
 
@@ -417,7 +417,7 @@ make all-backend
 make all
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-3.png?raw=true)
+![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-3.png?raw=true)
 
 ### Check the created Docker images
 
@@ -427,7 +427,7 @@ After completion of the make command, you can check the newly created docker ima
 docker images
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-4.png?raw=true)
+![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-4.png?raw=true)
 
 ### Cleaning the images from local storage
 
@@ -437,7 +437,7 @@ We can run this command to clean the local images:
 make clean
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-15.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-15.png)
 
 ## Step 4: Running the Application
 
@@ -450,7 +450,7 @@ Run the backend image:
 docker run -p 4000:4000 your-dockerhub-username/<backend-image-name>
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-5.png?raw=true)
+![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-5.png?raw=true)
 
 This will run the backend server on port 4000.
 
@@ -464,7 +464,7 @@ docker run -p 80:80 your-dockerhub-username/<frontend-image-name>
 
 This will run the frontend on port **80.**
 
-![](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-14.png)
+![](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Full-stack-app/Docker%20Image%20using%20Makefile//images/image-14.png)
 
 ---
 
