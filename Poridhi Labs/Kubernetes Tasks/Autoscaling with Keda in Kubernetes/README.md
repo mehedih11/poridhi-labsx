@@ -3,7 +3,7 @@
 Autoscaling with KEDA and Prometheus Using Custom Metrics
 This documentation provides a step-by-step guide to implement autoscaling for Kubernetes pods using KEDA (Kubernetes Event-Driven Autoscaler), Prometheus, and custom metrics. The process includes creating a custom metric in Go, deploying the app on Kubernetes, configuring Prometheus for metrics scraping, and setting up Keda to enable autoscaling based on these metrics. By combining these tools, Kubernetes can scale workloads dynamically based on real-time metrics derived from the application.
 
-![](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/arch_final2.drawio.svg)
+![](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/arch_final2.drawio.svg)
 
 ## Key Components Overview
 
@@ -56,7 +56,7 @@ Check the installed Go version to ensure it's working:
 go version
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-1.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-1.png)
 
 **2. Install helm**
 
@@ -72,13 +72,13 @@ Check the helm version
 helm version
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-2.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-2.png)
 
 **Configure helm:**
 
 If you are facing this issue:
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-3.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-3.png)
 
 This is due to the fact that, Helm is unable to connect to the Kubernetes cluster. As helm could not find the the correct kubeconfig file in this directory: `~/.kube/config` To solve this issue, we have to set up the correct path of kubeconfig file. This will solve the issue.
 
@@ -87,7 +87,7 @@ kubectl config view --raw > /root/.kube/config
 chmod 600 /root/.kube/config
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-4.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-4.png)
 
 
 ## Go Application: Exposing Custom Metrics
@@ -208,7 +208,7 @@ docker push <DOCKERHUB_USERNAME>/<IMAGE_NAME>:<VERSION>
 
 > NOTE: Make sure to update the <> values
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image.png)
 
 
 ##  Deploying on Kubernetes
@@ -308,7 +308,7 @@ helm repo update
 helm install prometheus prometheus-community/prometheus -n prometheus --create-namespace
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-5.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-5.png)
 
 **2. Install KEDA**
 
@@ -318,7 +318,7 @@ helm repo update
 helm install keda kedacore/keda --namespace keda --create-namespace
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-6.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-6.png)
 
 
 ### Update the Prometheus Configuration
@@ -339,21 +339,21 @@ Now update the prometheus:
 helm upgrade --install prometheus prometheus-community/prometheus -f prometheus-values.yaml -n prometheus
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-7.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-7.png)
 
 
 ## Labeling the Worker Nodes
 
 First get the worker node name:
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-32.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-32.png)
 
 ```sh
 kubectl label nodes <worker-1> role=worker-node
 kubectl label nodes <worker-2> role=worker-node
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-33.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-33.png)
 
 
 ## Deploy the application in kubernetes
@@ -364,7 +364,7 @@ kubectl apply -f service.yaml
 kubectl apply -f keda-scaledobject.yaml
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-8.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-8.png)
 
 
 ## Testing and Monitoring the setup
@@ -379,12 +379,12 @@ First get the MasterNode IP:
 kubectl get nodes -o wide
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-28.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-28.png)
 
 
 Create a load-balancer with the MasterNode IP and the NodePort of the Grafana service(`30081`):
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-31.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-31.png)
 
 **2. Monitor resource scaling:**
 
@@ -396,7 +396,7 @@ watch -n 1 'kubectl get pods,hpa,scaledobject'
 
 **Initial situation:**
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-11.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-11.png)
 
 **3. Generate load manually:**
 
@@ -406,17 +406,17 @@ Execute the following command to send multiple requests to the service, simulati
 for i in {1..30}; do curl <load-balancer-address>; done
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-29.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-29.png)
 
 After generating the load, wait for some time and monitor the watch terminal for the scaling. You will see hpa scale our deployment according to the load.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-30.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-30.png)
 
 **Rescaling:**
 
 When there is no load, it will automatically scale down to minimum replicas:
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-14.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-14.png)
 
 ## Setting up Grafana for Visualization
 
@@ -430,7 +430,7 @@ helm repo update
 helm install grafana grafana/grafana -n monitoring --create-namespace
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-15.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-15.png)
 
 **2. Expose the Grafana service using Nodeport:**
 
@@ -443,7 +443,7 @@ helm upgrade --install grafana grafana/grafana \
   --set service.nodePort=30080
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-16.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-16.png)
 
 
 **3. Create a load-balancer to access Grafana.**
@@ -456,7 +456,7 @@ Create a load-balancer with the MasterNode IP and the NodePort of the Grafana se
 kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-19.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-19.png)
 
 Use the password and login into Grafana.
 
@@ -471,15 +471,15 @@ Now, let's create a dashboard to monitor the metrics.
 - Click "Add data source"
 - Select "Prometheus"
 
-  ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-20.png)
+  ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-20.png)
 
 - Set URL to: `http://prometheus-server.prometheus.svc.cluster.local`
 
-  ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-21.png)
+  ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-21.png)
 
 - Click "Save & Test"
 
-  ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-22.png)
+  ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-22.png)
 
 ### **Build the dashboard:**
 
@@ -499,7 +499,7 @@ rate(product_order_total[5m]) * 300
 ```
 - This calculates the request rate over the past 5 minutes, scaled by a factor of 300.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-27.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-27.png)
 
 **3. Customize Panel**:
 
@@ -561,7 +561,7 @@ Once all panels are added, configure the overall dashboard settings for optimal 
 
 Here is the Final Dashboard:
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-23.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-23.png)
 
 ## Automated Load Testing with Python
 
@@ -615,7 +615,7 @@ if __name__ == "__main__":
 python load_test.py
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-24.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-24.png)
 
 > Make Sure you have Port-forwarded the Go application Service.
 
@@ -625,11 +625,11 @@ python load_test.py
 - Number of pods scaling up and down
 - Response time variations
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-25.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-25.png)
 
 During the normal load condition, the deployment will be scale down to minimum replicas:
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-26.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Autoscaling%20with%20Keda%20in%20Kubernetes/images/image-26.png)
 
 
 ### **Conclusion**
