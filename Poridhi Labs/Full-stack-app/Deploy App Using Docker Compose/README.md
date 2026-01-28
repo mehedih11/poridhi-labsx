@@ -2,7 +2,7 @@
 
 This guide provides step-by-step instructions on how to run a full-stack React and Node.js application using Docker Compose. The app consists of a React frontend, a Node.js backend, and a MySQL database.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Full-stack-app/Deploy%20App%20Using%20Docker%20Compose//images/image-5.png?raw=true)
+![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Full-stack-app/Deploy%20App%20Using%20Docker%20Compose//images/image-5.png?raw=true)
 
 Docker Compose simplifies the process of setting up multi-container applications by defining services, networks, and volumes in a single YAML file.
 
