@@ -1,10 +1,10 @@
 # Custom Labs
 
 ## Docker
-- [Lab 01](./Docker/Lab%2001)
-- [Lab 02](./Docker/Lab%2002)
+1. [Lab 01](./Docker/Lab%2001)
+2. [Lab 02](./Docker/Lab%2002)
 
 ## Kubernetes
-- [Lab 01](./Kubernetes/Lab%2001)
-- [Lab 02](./Kubernetes/Lab%2002)
-- [Lab 03](./Kubernetes/Lab%2003)
+1. [Lab 01](./Kubernetes/Lab%2001)
+2. [Lab 02](./Kubernetes/Lab%2002)
+3. [Lab 03](./Kubernetes/Lab%2003)
