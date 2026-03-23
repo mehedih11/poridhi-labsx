@@ -1,4 +1,4 @@
 # Monitoring Labs
 
-- [K8s Log Collection](./K8sLogCollection)
-- [Server Log Collection](./ServerLogCollection)
+1. [Kubernetes log collection using Grafana Loki](./K8sLogCollection)
+2. [Server Log Collection using Grafana Loki](./ServerLogCollection)

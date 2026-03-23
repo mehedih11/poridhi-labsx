@@ -1,5 +1,5 @@
 # FastAPI Labs
 
-1. [Lab 01](./Lab%2001)
-2. [Lab 02](./Lab%2002)
-3. [Lab 03](./Lab%2003)
+1. [FastAPI Fundamentals: Building and Validating APIs](./Lab%2001)
+2. [Database Integration with FastAPI](./Lab%2002)
+3. [Database Integration with FastAPI in Kubernetes](./Lab%2003)
