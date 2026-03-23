@@ -2,7 +2,7 @@
 
 In this lab, you will learn how to set up Prometheus in Docker to monitor container metrics using `cAdvisor`, a tool designed to provide real-time performance data for running containers. `cAdvisor` collects and exposes metrics such as CPU, memory, and network usage from your Docker containers, which Prometheus then scrapes and stores for analysis. This setup enables efficient monitoring of containerized applications.
 
-![](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2009/images/lab9-logo.svg)
+![](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2009/images/lab9-logo.svg)
 
 In this lab, you will:
 - Create a Docker network for container communication.
@@ -33,7 +33,7 @@ We can verify the network by running:
 docker network ls
 ```
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2009/images/lab91.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2009/images/lab91.png?raw=true)
 
 
 ### Create a Prometheus Configuration File
@@ -126,17 +126,17 @@ docker-compose up -d
   ```bash
   ifconfig
   ```
-  ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/lab-59.png?raw=true)
+  ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/lab-59.png?raw=true)
     
 - Go to Poridhi's `LoadBalancer`and Create a `LoadBalancer` with the `eht0` IP and port `9090`.
 
-  ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/new-11.png?raw=true)
+  ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/new-11.png?raw=true)
 
 - By using the Provided `URL` by `LoadBalancer`, you can access the Prometheus web interface from any browser.
 
 -  Click on the **"Status"** tab in the top menu and select **"Targets"** in Prometheus GUI.
 
-   ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2009/images/lab95.png?raw=true)
+   ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2009/images/lab95.png?raw=true)
        
    You should see a target named `cadvisor` with the URL `http://cadvisor:8080/metrics`. The `UP` status indicates that `cAdvisor` is successfully running and scraping metrics from the Docker containers.
 
@@ -150,7 +150,7 @@ To see Docker container metrics in Prometheus:
    container_memory_usage_bytes
    ```
 
-   ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2009/images/lab94.png?raw=true)
+   ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2009/images/lab94.png?raw=true)
 
    This will show memory usage for each container in bytes.
 

@@ -20,7 +20,7 @@ This guide provides a step-by-step approach to deploy a K3s Kubernetes cluster u
 
 2. Your access keys can be found on the lab description page where the credentials were generated.
 
-![AWS Credentials](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/refs/heads/main/Poridhi%20Labs/Redis%20Labs/Lab%2001/images/image-1.png)
+![AWS Credentials](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/refs/heads/main/Poridhi%20Labs/Redis%20Labs/Lab%2001/images/image-1.png)
 
 ---
 

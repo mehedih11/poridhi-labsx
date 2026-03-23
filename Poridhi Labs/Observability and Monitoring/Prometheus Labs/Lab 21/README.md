@@ -2,14 +2,14 @@
 
 In a typical Prometheus setup, the server scrapes metrics from running instances. However, when it comes to **batch jobs**—which run for a short period and exit—it becomes challenging for Prometheus to collect metrics because the job often finishes before Prometheus has a chance to scrape them.
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2021/images/pushgateway1.svg?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2021/images/pushgateway1.svg?raw=true)
 
 The **Push Gateway** addresses this problem by acting as a middleman. Here's how it works:
 
 1. **Batch Job Completion**: When a batch job finishes, it pushes its metrics to the Push Gateway instead of waiting for Prometheus to scrape them.
 2. **Prometheus Scraping**: Prometheus then scrapes the metrics from the Push Gateway, just as it would for any other target.
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2021/images/pushgateway2.svg?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2021/images/pushgateway2.svg?raw=true)
 
 
 
@@ -101,7 +101,7 @@ You can set up the Push Gateway on any server, even the same server hosting your
    sudo systemctl status pushgateway
    ```
 
-   ![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2021/images/image.png?raw=true)
+   ![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2021/images/image.png?raw=true)
 
 6. **Test the Metrics Endpoint**:
    Use `curl` to verify the metrics endpoint:
@@ -109,7 +109,7 @@ You can set up the Push Gateway on any server, even the same server hosting your
    curl localhost:9091/metrics
    ```
 
-   ![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2021/images/image-1.png?raw=true)
+   ![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2021/images/image-1.png?raw=true)
 
 
 

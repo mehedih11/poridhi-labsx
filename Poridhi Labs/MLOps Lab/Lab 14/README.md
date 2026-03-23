@@ -2,7 +2,7 @@
 
 Machine learning projects require **continuous monitoring** post-deployment to ensure the model's performance doesn’t degrade. Tools like **Grafana** allow data scientists and ML engineers to monitor and visualize production models in real-time, enabling timely actions when performance drops.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/2b53526c1b191de449c3f0b829615aa01fda88f2/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/lab-14.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/2b53526c1b191de449c3f0b829615aa01fda88f2/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/lab-14.svg)
 
 In this lab, we will:
 - Build a regression model to predict diamond prices.
@@ -37,7 +37,7 @@ Let's consider an example: Imagine a robot trained to sort apples based on size 
 
 Monitoring for data drift helps detect when the production data has changed so we can retrain the model with more recent data to ensure reliable performance.
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/graph.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/graph.png?raw=true)
    
 ### **Concept Drift**
 Concept drift occurs when the relationship between the input features and the target variable changes over time. In essence, the rules or logic the model learned during training no longer align with the current environment.
@@ -419,13 +419,13 @@ Create poridhis load balancer for Grafana to expose the services. Get the `eth0`
 ifconfig
 ```
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/lab-59.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/lab-59.png?raw=true)
 
 Create a `load balancer` for Grafana using the IP and port `3000`.
 
 Create another `load balancer` for Metrics using the IP and port `8000`.
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-2.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-2.png?raw=true)
 
 #### Testing the Services
 
@@ -435,7 +435,7 @@ curl -X POST -H "Content-Type: application/json" \
 -d '{"carat": 0.5, "cut": "Ideal", "color": "E", "clarity": "VS1", "depth": 61.5, "table": 55}' \
 http://localhost:5000/predict
 ```
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-1.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-1.png?raw=true)
 
 To check the metrics, open the `load balancer` for Metrics in the browser.
 
@@ -471,10 +471,10 @@ In the panel edit view:
    - Click **Run queries** to display the graph. It will show the data drift score in different time intervals.
    - Add `Data_Drift` as panel title under `time series` on right side.
 
-     ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-3.png?raw=true)
+     ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-3.png?raw=true)
    - Save the Dashboard as `Monitoring Dashboard`.
 
-     ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-4.png?raw=true)
+     ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-4.png?raw=true)
 
 
 #### **Add Concept Drift Panel**
@@ -482,7 +482,7 @@ In the panel edit view:
 Navigate to Dashboard and select `Monitoring Dashboard`.
    - click on `Add` icon on the top right corner and select `Visualization`.
 
-     ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-6.png?raw=true)
+     ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-6.png?raw=true)
 
    - Select the **`concept_drift`** metric from the **Metrics Explorer**.
    - Click **Run queries** to display the graph. It will show the concept drift score in different time intervals.
@@ -496,7 +496,7 @@ Your Grafana dashboard now includes two panels:
 1. **Data Drift Panel**: Displays the `data_drift` metric
 2. **Concept Drift Panel**: Displays the `concept_drift` metric
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-7.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-7.png?raw=true)
 
 ## Step 8: Setting up Alerts for Drift Threshold in Grafana
 
@@ -511,7 +511,7 @@ This document guides you through setting up Discord alerts for detecting drift s
    - Choose **Create my own** and then **For me and my friends**.  
    - Provide a server name, e.g., *Model Monitoring Alerts*.  
 
-   ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-8.png?raw=true)
+   ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-8.png?raw=true)
 
 3. **Add a Text Channel**:  
    - Click the **+** button next to *Text Channels* in the top-left.  
@@ -521,14 +521,14 @@ This document guides you through setting up Discord alerts for detecting drift s
    - Click **Create Webhook**.  
    - Copy the generated webhook URL and save it securely.
 
-   ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-9.png?raw=true)
+   ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-9.png?raw=true)
 
 ### **Configuring Grafana to Use Discord Webhook**
 
 1. **Navigate to Contact Points**:  
    - Open Grafana and go to **Home > Alerting > Contact points**.  
 
-   ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-10.png?raw=true)
+   ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-10.png?raw=true)
 
 2. **Create a New Contact Point**:  
    - Click **+ Add contact point**.  
@@ -536,13 +536,13 @@ This document guides you through setting up Discord alerts for detecting drift s
    - Select **Discord** as the integration type.  
    - Paste the Discord webhook URL. 
 
-   ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-11.png?raw=true)
+   ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-11.png?raw=true)
 
 3. **Test the Connection**:  
    - Click **Test** to send a test alert.  
    - Verify in Discord that the test alert has been received.  
 
-   ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-12.png?raw=true)
+   ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-12.png?raw=true)
 
 4. **Save the Contact Point**:  
    - Click **Save contact point** to store the configuration.
@@ -556,20 +556,20 @@ This document guides you through setting up Discord alerts for detecting drift s
    - Select the relevant metric pane and click **Edit**.  
    - Navigate to the **Alert** tab and choose **New alert rule**.  
 
-   ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-13.png?raw=true)
+   ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-13.png?raw=true)
 
 3. **Define Query and Alert Condition**:  
    - Under **Define query and alert condition**, click **Code**, then **Run queries**.  
    - Select the relevant metric (e.g., `data_drift`) as the first input (A). 
 
-   ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-14.png?raw=true)
+   ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-14.png?raw=true)
 
 4. **Set a Threshold**:  
    - In the **Expressions** section, set a custom threshold under **Thresholds**.  
    - Example: Set the threshold to `0.026` to trigger an alert when the drift score exceeds this value.  
    - Use the **Preview** button to verify.
 
-   ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-15.png?raw=true)  
+   ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-15.png?raw=true)  
 
 5. **Set Evaluation Behavior**:  
    - Under **Set evaluation behavior**, set the **Pending period** to **None** for immediate alerts.  
@@ -578,7 +578,7 @@ This document guides you through setting up Discord alerts for detecting drift s
 6. **Configure Labels and Notifications**:  
    - Under **Configure labels and notifications**, select the Discord webhook contact point.  
 
-   ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-16.png?raw=true)
+   ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-16.png?raw=true)
 
 7. **Add Annotations (Optional)**:  
    - Provide a summary or custom message for the alert.  
@@ -590,11 +590,11 @@ This document guides you through setting up Discord alerts for detecting drift s
 
 1. **Test Alerts**: Simulate conditions to verify that alerts are triggered and delivered to the Discord channel. 
 
-   ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-17.png?raw=true)
+   ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-17.png?raw=true)
 
 2. **Monitor**: Confirm that alerts fire when the drift threshold is crossed. 
 
-   ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-18.png?raw=true)
+   ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2014/images/image-18.png?raw=true)
 
 ## Conclusion
 

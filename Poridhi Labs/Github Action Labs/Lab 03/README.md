@@ -7,7 +7,7 @@ This lab demonstrates how to build, test, and push Docker images using GitHub Ac
 
 ## **Task Description**
 
-![](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Github%20Action%20Labs/Lab%2003/images/lab-03.svg)
+![](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Github%20Action%20Labs/Lab%2003/images/lab-03.svg)
 
 
 
@@ -252,7 +252,7 @@ curl http://localhost:8000
 
 Expected result:
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Github%20Action%20Labs/Lab%2003/images/image.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Github%20Action%20Labs/Lab%2003/images/image.png)
 
 ## **Required Secrets**
 Add Secrets to Your Repository by following the following steps:
@@ -283,7 +283,7 @@ git commit -m "Updated repository"
 git push origin nginx-configured
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Github%20Action%20Labs/Lab%2003/images/image-1.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Github%20Action%20Labs/Lab%2003/images/image-1.png)
 
 
 ### Run the workflow
@@ -292,7 +292,7 @@ git push origin nginx-configured
 2. Merge the pull request into the `main` branch.
 3. Navigate to the **Actions** tab to monitor the workflow progress.
 
-    ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Github%20Action%20Labs/Lab%2003/images/image-2.png)
+    ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Github%20Action%20Labs/Lab%2003/images/image-2.png)
 
 
 

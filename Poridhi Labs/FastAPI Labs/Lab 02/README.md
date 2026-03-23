@@ -2,7 +2,7 @@
 
 This guide walks you through the process of integrating FastAPI with SQLModel to create a simple RESTful API. FastAPI is a modern Python web framework for building APIs quickly and efficiently, while SQLModel simplifies working with SQL databases using Python classes.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/banner.svg)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/banner.svg)
 
 
 ## Overview of the Project
@@ -48,7 +48,7 @@ Once installed, you can verify that pip is working by checking its version:
 pip3 --version
 ```
 
-![](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2003/images/image.png)
+![](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2003/images/image.png)
 
 
 
@@ -366,7 +366,7 @@ docker run --name fastapi-mysql \
 docker ps
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-19.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-19.png)
 
 ## **Step 10: Environment Variables**
 
@@ -382,7 +382,7 @@ API_VERSION=2.0.0
 
 Here is an example of the `.env` file:
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-21.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-21.png)
 
 ## **Step 11: Running the Application**
 
@@ -392,7 +392,7 @@ Here is an example of the `.env` file:
 uvicorn app.main:app --reload
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-18.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-18.png)
 
 **Access the Application:**
 
@@ -406,11 +406,11 @@ To access the FastAPI Application with `Poridhi's Loadbalancer`, use the followi
 ifconfig
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2003/images/image-6.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2003/images/image-6.png)
 
 **2. Go to Poridhi's LoadBalancer and Create a LoadBalancer with the `eht0` IP and port `8000` of the FastAPI**
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2003/images/image-7.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2003/images/image-7.png)
 
 
 **3. By using the Provided `URL` by LoadBalancer, you can access the FastAPI Application from any browser.**
@@ -429,7 +429,7 @@ Retrieve a list of all books in the database.
 curl -X GET "http://127.0.0.1:8000/api/v1/books/" -H "accept: application/json" | jq .
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-2.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-2.png)
 
 >NOTE: The `jq` command is used to format the JSON response. If you don't have `jq` installed, install it using `sudo apt-get install jq` on Linux.
 
@@ -453,7 +453,7 @@ curl -X POST "http://127.0.0.1:8000/api/v1/books/" \
 }' | jq .
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-3.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-3.png)
 
 ### **3. Get a Specific Book by ID**
 
@@ -464,7 +464,7 @@ Replace `{book_id}` with the ID of the book you want to retrieve.
 curl -X GET "http://127.0.0.1:8000/api/v1/books/9" -H "accept: application/json" | jq .
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-4.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-4.png)
 
 ### **4. Update a Book**
 
@@ -482,7 +482,7 @@ curl -X PUT "http://127.0.0.1:8000/api/v1/books/9" \
 }' | jq .
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-5.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-5.png)
 
 ### **5. Delete a Book**
 
@@ -493,7 +493,7 @@ Replace `{book_id}` with the ID of the book you want to delete.
 ```bash
 curl -X DELETE "http://127.0.0.1:8000/api/v1/books/9" -H "accept: application/json" | jq .
 ```
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-6.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-6.png)
 
 ### **6. Search and Paginate Books**
 
@@ -505,7 +505,7 @@ Fetch a paginated list of books starting from the offset and limited to a number
 curl -X GET "http://127.0.0.1:8000/api/v1/books/?offset=0&limit=5" -H "accept: application/json" | jq .
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-7.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-7.png)
 
 ### **Testing via Swagger UI**
 
@@ -515,7 +515,7 @@ To test the API endpoints using Swagger UI, follow these steps:
 
 Replace `<ROOT_PATH>` with the URL of the load balancer.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-8.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-8.png)
 
 Now use the interactive interface to explore and test the API endpoints.
 
@@ -525,11 +525,11 @@ Now use the interactive interface to explore and test the API endpoints.
 
 Get a list of all books in the database. Click on the **Try it out** button and then **Execute** to see the response.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-9.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-9.png)
 
 **Output:**
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-10.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-10.png)
 
 ### **2. Create a New Book**
 
@@ -537,11 +537,11 @@ Get a list of all books in the database. Click on the **Try it out** button and 
 
 Create a new book by sending a JSON payload. Click on the **Try it out** button and then **Execute** to see the response.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-11.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-11.png)
 
 **Output:**
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-12.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-12.png)
 
 ### **3. Get a Specific Book by ID**
 
@@ -549,11 +549,11 @@ Create a new book by sending a JSON payload. Click on the **Try it out** button 
 
 Replace `{book_id}` with the ID of the book you want to retrieve.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-13.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-13.png)
 
 **Output:**
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-14.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-14.png)
 
 Now, continue testing the other endpoints in a similar manner.
 
@@ -579,7 +579,7 @@ docker ps
 docker exec -it <container_id> mysql -uroot -p
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-15.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-15.png)
 
 
 After entering the password, you can check the tables and records.
@@ -591,7 +591,7 @@ show tables;
 select * from book;
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-17.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/FastAPI%20Labs/Lab%2002/images/image-17.png)
 
 
 ## Conclusion

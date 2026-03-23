@@ -2,7 +2,7 @@
 
 GitHub Actions is a powerful CI/CD (Continuous Integration and Continuous Deployment) tool integrated into GitHub. It allows developers to automate tasks such as building, testing, and deploying code directly from their repositories. In this lab, we will learn how to create GitHub Actions workflows with multiple jobs that depend on each other. This guide demonstrates a basic CI/CD pipeline with build, test, deploy, and notify stages.
 
-![](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Github%20Action%20Labs/Lab%2002/images/workflows.svg)
+![](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Github%20Action%20Labs/Lab%2002/images/workflows.svg)
 
 ## Jobs in Github action
 
@@ -44,7 +44,7 @@ To complete this lab, ensure you have:
 
 ## Task Description
 
-![](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Github%20Action%20Labs/Lab%2002/images/lab-02-new.svg)
+![](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Github%20Action%20Labs/Lab%2002/images/lab-02-new.svg)
 
 In this lab, you'll:
 
@@ -263,7 +263,7 @@ Once pushed, the workflow will be automatically triggered.
 
 Navigate to the Actions tab in your repository to view the workflow execution details. Each step's logs show the command output, helping you understand how the workflow executed.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Github%20Action%20Labs/Lab%2002/images/image.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Github%20Action%20Labs/Lab%2002/images/image.png)
 
 ## Practice Exercises
 

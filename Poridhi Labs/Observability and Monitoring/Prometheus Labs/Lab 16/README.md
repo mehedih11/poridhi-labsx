@@ -208,21 +208,21 @@ This code allows us to monitor request duration patterns in Prometheus, giving i
      http_request_duration_seconds_bucket
      ```
 
-     ![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2016/images/image-1.png?raw=true)
+     ![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2016/images/image-1.png?raw=true)
 
    - **Rate of Requests**: Calculates the request rate over the last 5 minutes.
      ```prometheus
      rate(http_request_duration_seconds_bucket[5m])
      ```
 
-     ![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2016/images/image-2.png?raw=true)
+     ![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2016/images/image-2.png?raw=true)
 
    - **Quantile Calculation (95th Percentile)**: Visualizes the 95th percentile of request durations.
      ```prometheus
      histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m]))
      ```
 
-     ![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2016/images/image-3.png?raw=true)
+     ![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2016/images/image-3.png?raw=true)
 
 ### 3. **Query Summary Metrics**
 
@@ -231,14 +231,14 @@ This code allows us to monitor request duration patterns in Prometheus, giving i
      http_request_duration_summary_seconds
      ```
 
-     ![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2016/images/image-4.png?raw=true)
+     ![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2016/images/image-4.png?raw=true)
 
    - **Quantile (95th Percentile)**: Shows the 95th percentile of request durations as calculated in the summary.
      ```prometheus
      http_request_duration_summary_seconds{quantile="0.95"}
      ```
 
-     ![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2016/images/image-5.png?raw=true)
+     ![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2016/images/image-5.png?raw=true)
 
 
 

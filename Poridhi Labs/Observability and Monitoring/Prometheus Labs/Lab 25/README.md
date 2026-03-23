@@ -2,7 +2,7 @@
 
 In this lab, you will set up Prometheus on `Poridhi's VM` to monitor an AWS EC2 instance. You will install Node Exporter on the `AWS EC2 instance` to collect system metrics like CPU and memory usage. Additionally, you will configure Alertmanager on `Poridhi's VM` to send alerts to a Slack channel.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/logo.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/logo.svg)
 
 Terraform will be used to automate creation of AWS ec2 instance with necessary security groups, key pair, and route table.
 
@@ -23,7 +23,7 @@ Terraform will be used to automate creation of AWS ec2 instance with necessary s
 
 ## **Set Up AWS Infrastructure with Terraform**
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/lab-5-infra.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/lab-5-infra.svg)
 
 Here, we create the following resources using Terraform:
 
@@ -38,7 +38,7 @@ Set up AWS credentials for Terraform:
 ```bash
 aws configure
 ```
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/5.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/5.png)
 
 ### **2. Create an SSH Key Pair**
 
@@ -375,13 +375,13 @@ Congratulation! You have created a Slack workspace.
 ### **Create a Slack App**
 1. Go to Slack API: [Slack API Dashboard](https://api.slack.com/apps).
 
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/1.jpg)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/1.jpg)
 
 2. Click **Create an App** and select **From Scratch**.
 3. Name your app and choose the workspace we created (e.g. `Prometheus`).
 4. Under **Features**, enable **Incoming Webhooks**.
 
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/3.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/3.png)
 
 5. Add a new webhook and select the channel (e.g. `prometheus`).
 
@@ -389,7 +389,7 @@ Congratulation! You have created a Slack workspace.
 
 6. Copy the webhook URL and and channel name. We will use this in the Alertmanager configuration.
 
-   ![alt text](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/4.png)
+   ![alt text](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/4.png)
 
 
 ## **Alertmanager Configuration**
@@ -520,7 +520,7 @@ scrape_configs:
   ```bash
   ifconfig
   ```
-  ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/lab-59.png?raw=true)
+  ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/lab-59.png?raw=true)
 
 -  Go to Poridhi's `LoadBalancer`and Create `2` `LoadBalancers` with the `eht0` IP and port `9090` for `Prometheus`, and `9093` for `Alertmanager`.
 
@@ -528,7 +528,7 @@ scrape_configs:
 
 - In `Prometheus`, you can see the `Node Exporter` as a target. In `Alert` tab you will see a `HighMemoryUsage` alert in `inactive` state.
 
-  ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/6.png)
+  ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/6.png)
 
 ## **Load Testing**
 
@@ -558,17 +558,17 @@ When the memory usage reaches 85%, the `Stress` tool will start using swap space
 
 In Prometheus, you will see the `HighMemoryUsage` alert in `pending` state. After 5 seconds, the alert will be in `firing` state.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/7.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/7.png)
 
 ### **Verify the Alert**
 
 To verify the alert, you can check the `Slack` channel. You will see a `HighMemoryUsage` alert in the `prometheus` channel.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/9.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/9.png)
 
 Now if we terminate the `Stress` process, the alert will be in `resolved` state. A message will be sent to the Slack channel to notify the user.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/10.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/9a755a8cb2852f5956249874a075b9c59f16027f/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2025/images/10.png)
 
 ## **Summary**
 

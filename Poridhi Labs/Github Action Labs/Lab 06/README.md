@@ -2,7 +2,7 @@
 
 In this project, we set up infrastructure on AWS using Pulumi and configure a Kubernetes cluster (k3s) on AWS EC2 instances with Ansible. We then create a custom Docker image for a self-hosted GitHub Actions runner and deploy it in the Kubernetes cluster. Finally, we deploy an Nginx application as a test workload to validate the setup and ensure seamless CI/CD integration using GitHub Actions.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/diagram1.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/diagram1.svg)
 
 
 ## What is Self-Hosted Runner?
@@ -11,7 +11,7 @@ A self-hosted GitHub Actions runner is a machine (virtual or physical) that you 
 
 ## How Self-Hosted GitHub Action Runners Work?
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/Self-hosted.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/Self-hosted.svg)
 
 This diagram explains the workflow of a self-hosted runner in GitHub Actions. When a workflow is triggered, jobs are added to the **Job Queue**. The self-hosted runner, managed by the user, continuously polls the queue, retrieves jobs, and processes them.
 
@@ -25,7 +25,7 @@ The **Runner Listener** fetches the job, and the **Job Controller** breaks it in
 
 ## **Task Description**
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/diagram2.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/diagram2.svg)
 
 - Use pulumi to setup AWS network infrastructure (VPC, Subnets, Security groups, EC2) etc. 
 - Setup k3s cluster in AWS instances using Ansible.
@@ -53,7 +53,7 @@ Before you begin, ensure you have the following:
 
 ## Step 1: Create AWS Resources with Pulumi
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/b83239541dd39c17d025e506e159a24eb974bfb8/Poridhi%20Labs/Github%20Action%20Labs/Lab%2006/images/aws-infra.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/b83239541dd39c17d025e506e159a24eb974bfb8/Poridhi%20Labs/Github%20Action%20Labs/Lab%2006/images/aws-infra.svg)
 
 ### Configure AWS CLI
 
@@ -237,9 +237,9 @@ pulumi up
 
 ## Step 2: Install K3S using Ansible
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/b83239541dd39c17d025e506e159a24eb974bfb8/Poridhi%20Labs/Github%20Action%20Labs/Lab%2006/images/ansible-to-infra.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/b83239541dd39c17d025e506e159a24eb974bfb8/Poridhi%20Labs/Github%20Action%20Labs/Lab%2006/images/ansible-to-infra.svg)
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/b83239541dd39c17d025e506e159a24eb974bfb8/Poridhi%20Labs/Github%20Action%20Labs/Lab%2006/images/Ansible-k3s.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/b83239541dd39c17d025e506e159a24eb974bfb8/Poridhi%20Labs/Github%20Action%20Labs/Lab%2006/images/Ansible-k3s.svg)
 
 ### Create Project Structure
 
@@ -409,7 +409,7 @@ kubectl get nodes
 
 Now we will create a Dockerfile that defines the container image for the self-hosted runner, including all required dependencies and configurations.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/github-runner.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/github-runner.svg)
 
 ### **Create Directory for github-runner:**
 
@@ -530,7 +530,7 @@ To build the Docker image with the specified environment variables set in the Do
    - Click on **Personal access tokens** → **Tokens (classic)**.
    - Select **Generate new token (classic)**.
 
-     ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/1.png)
+     ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/1.png)
 
 #### **Set Permissions**:
    - Provide a meaningful **note** (e.g., `Self-Hosted Runner`).
@@ -540,7 +540,7 @@ To build the Docker image with the specified environment variables set in the Do
      - `admin:repo_hook` (Manage webhooks and services).
      - `workflow` (Update GitHub Actions workflows).
 
-     ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/2.png)
+     ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/2.png)
 
 #### **Generate and Save**:
    - Click **Generate token**.
@@ -711,7 +711,7 @@ kubectl get pods -n host-runner
 
 You should see the GitHub runner pod running successfully.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/10.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/10.png)
 
 If the pod is not running, go to `github > settings > actions > Runners` self-hosted runners will be listed there. You can see the runner status there. Currently, it will be in `idle` state.
 
@@ -944,7 +944,7 @@ To get the `KUBE_CONFIG` file, you can use the following command:
 cat /etc/rancher/k3s/k3s.yaml
 ```
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/5.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/5.png)
 
 Copy the contents of the file and replace the `server ip` with kubernetes `master node ip`.
 
@@ -953,7 +953,7 @@ To get the master node ip, you can use the following command:
 ```bash
 kubectl get nodes -o wide
 ```
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/6.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/6.png)
 
 and add it as a secret in your GitHub repository as `KUBE_CONFIG`.
 
@@ -965,13 +965,13 @@ After creating the required files and configuration, commit and push all files t
 Monitor the **Actions** tab in your GitHub repository to ensure the workflow runs successfully. The workflow will:  
 1. Build and push the Docker image.
 
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/3.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/3.png)
 
 2. Update Kubernetes manifests dynamically. 
 
 3. Deploy the application to the Kubernetes cluster.
 
-    ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/4.png)
+    ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/4.png)
 
 ## Access the Application
 
@@ -990,7 +990,7 @@ kubectl get services -n dev
 ```
 For successful deployment, you should see the `nginx-service` with a `NodePort` service.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/7.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/7.png)
 
 Now you can access the application with public ip of the master node and the nodeport of the service.
 

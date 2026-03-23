@@ -2,7 +2,7 @@
 
 In this lab, you will learn how to deploy a self-hosted GitHub Actions runner in a Kubernetes cluster to execute CI/CD workflows. The lab covers creating a custom Docker image for the runner, configuring Kubernetes deployments, and setting up GitHub Actions workflows for automated application deployment. By the end, you will deploy and verify an Nginx application in Kubernetes, leveraging the scalability, resource management, and automation capabilities of Kubernetes and GitHub Actions.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/diagram1.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/diagram1.svg)
 
 
 ## What is Self-Hosted Runner?
@@ -11,7 +11,7 @@ A self-hosted GitHub Actions runner is a machine (virtual or physical) that you 
 
 ## How Self-Hosted GitHub Action Runners Work?
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/Self-hosted.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/Self-hosted.svg)
 
 This diagram explains the workflow of a self-hosted runner in GitHub Actions. When a workflow is triggered, jobs are added to the **Job Queue**. The self-hosted runner, managed by the user, continuously polls the queue, retrieves jobs, and processes them.
 
@@ -25,7 +25,7 @@ The **Runner Listener** fetches the job, and the **Job Controller** breaks it in
 
 ## **Task Description**
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/diagram2.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/diagram2.svg)
 
 - Set up directories and initialize a GitHub repository for the project.  
 - Build and push a custom GitHub runner Docker image to Docker Hub.  
@@ -104,7 +104,7 @@ touch Dockerfile entrypoint.sh github-runner.yaml
 
 ## Step 2: Creating the Custom runner image
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/github-runner.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/github-runner.svg)
 
 Now we will create a Dockerfile that defines the container image for the self-hosted runner, including all required dependencies and configurations.
 
@@ -399,7 +399,7 @@ To build the Docker image with the specified environment variables set in the Do
    - Click on **Personal access tokens** → **Tokens (classic)**.
    - Select **Generate new token (classic)**.
 
-     ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/1.png)
+     ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/1.png)
 
 #### **Set Permissions**:
    - Provide a meaningful **note** (e.g., `Self-Hosted Runner`).
@@ -409,7 +409,7 @@ To build the Docker image with the specified environment variables set in the Do
      - `admin:repo_hook` (Manage webhooks and services).
      - `workflow` (Update GitHub Actions workflows).
 
-     ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/2.png)
+     ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/2.png)
 
 #### **Generate and Save**:
    - Click **Generate token**.
@@ -620,7 +620,7 @@ env:
   - Values are retrieved from a Kubernetes secret named `github-secret`.
 - **DOCKER_HOST**:
 
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/4d830d4e475c3b8189f674277ca0a230311fa9d7/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/runner-dind.svg)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/4d830d4e475c3b8189f674277ca0a230311fa9d7/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/runner-dind.svg)
 
 1. **Role of `DOCKER_HOST`:**
    - Specifies the location of the Docker daemon (`tcp://localhost:2375`).
@@ -738,7 +738,7 @@ kubectl get pods -n host-runner
 
 You should see the GitHub runner pod running successfully.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/10.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/10.png)
 
 **Check runner logs**
 
@@ -1021,7 +1021,7 @@ To get the `KUBE_CONFIG` file, you can use the following command:
 cat /etc/rancher/k3s/k3s.yaml
 ```
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/5.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/5.png)
 
 Copy the contents of the file and replace the `server ip` with kubernetes `master node ip`.
 
@@ -1030,7 +1030,7 @@ To get the master node ip, you can use the following command:
 ```bash
 kubectl get nodes -o wide
 ```
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/6.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/6.png)
 
 and add it as a secret in your GitHub repository as `KUBE_CONFIG`.
 
@@ -1042,13 +1042,13 @@ After creating the required files and configuration, commit and push all files t
 Monitor the **Actions** tab in your GitHub repository to ensure the workflow runs successfully. The workflow will:  
 1. Build and push the Docker image.
 
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/3.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/3.png)
 
 2. Update Kubernetes manifests dynamically. 
 
 3. Deploy the application to the Kubernetes cluster.
 
-    ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/4.png)
+    ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/4.png)
 
 
 
@@ -1071,7 +1071,7 @@ kubectl get services -n dev
 ```
 For successful deployment, you should see the `nginx-service` with a `NodePort` service.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/7.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/7.png)
 
 Now to access the application, you should get the `etho` ip of the master node and the `nodeport` of the service.
 
@@ -1081,17 +1081,17 @@ To get the `eth0` ip of the master node, you can use the following command:
 ifconfig
 ```
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/lab-59.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/lab-59.png?raw=true)
 
 ### **Create a Load Balancer**
 
 Create a load balancer with eht0 ip of the master node and the nodeport of the service.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/8.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/8.png)
 
 With the provided `url` by `load-balancer` you can access the application.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/9.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/6675e03153be6538a11f09778dc2ebea53803fcb/Poridhi%20Labs/Github%20Action%20Labs/Lab%2005/images/9.png)
 
 ## Conclusion
 

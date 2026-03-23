@@ -2,7 +2,7 @@
 
 When working with Docker, containers by default are isolated. However, when containers need to communicate with each other, you can connect them to the same Docker network. A **user-defined bridge network** provides more control over how Docker containers communicate compared to the default bridge network. This guide will walk you through setting up a custom bridge network, launching multiple Nginx containers on that network, and verifying communication between them.
 
-![image](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20in%20Action/Chapter%2005/Communication%20Between%20Containers/images/1.png?raw=true)
+![image](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20in%20Action/Chapter%2005/Communication%20Between%20Containers/images/1.png?raw=true)
 
 ## Why Use a User-Defined Bridge Network?
 
@@ -43,7 +43,7 @@ docker network ls
 
 Expected Output:
 
-![image](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20in%20Action/Chapter%2005/Communication%20Between%20Containers/images/out-1.png?raw=true)
+![image](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20in%20Action/Chapter%2005/Communication%20Between%20Containers/images/out-1.png?raw=true)
 
 The newly created `my-bridge-network` should appear in the list, showing that it uses the `bridge` driver.
 
@@ -90,7 +90,7 @@ docker ps
 
 Expected output:
 
-![image](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20in%20Action/Chapter%2005/Communication%20Between%20Containers/images/out-2.png?raw=true)
+![image](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20in%20Action/Chapter%2005/Communication%20Between%20Containers/images/out-2.png?raw=true)
 
 Here, you'll see the list of running containers along with their names, statuses, and other details like port mappings. The containers `container1`, `container2`, and `container3` should be listed as running, confirming that Nginx is operational inside each container.
 
@@ -121,7 +121,7 @@ This command will send 5 ICMP echo requests to `container2`. A successful ping w
 
 Expected Output:
 
-![image](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20in%20Action/Chapter%2005/Communication%20Between%20Containers/images/out-3.png?raw=true)
+![image](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20in%20Action/Chapter%2005/Communication%20Between%20Containers/images/out-3.png?raw=true)
 
 ### Pinging Container 3 from Container 1
 
@@ -133,7 +133,7 @@ ping container3 -c 5
 
 Expected Output:
 
-![image](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20in%20Action/Chapter%2005/Communication%20Between%20Containers/images/out-4.png?raw=true)
+![image](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20in%20Action/Chapter%2005/Communication%20Between%20Containers/images/out-4.png?raw=true)
 
 The successful responses confirm that `container1` can reach both `container2` and `container3` within the custom network.
 
@@ -155,7 +155,7 @@ ping container1 -c 5
 
 Expected Output:
 
-![image](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20in%20Action/Chapter%2005/Communication%20Between%20Containers/images/out-6.png?raw=true)
+![image](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20in%20Action/Chapter%2005/Communication%20Between%20Containers/images/out-6.png?raw=true)
 
 ### Pinging Container 3 from Container 2
 
@@ -165,7 +165,7 @@ ping container3 -c 5
 
 Expected Output:
 
-![image](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20in%20Action/Chapter%2005/Communication%20Between%20Containers/images/out-5.png?raw=true)
+![image](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20in%20Action/Chapter%2005/Communication%20Between%20Containers/images/out-5.png?raw=true)
 
 These tests confirm that all the containers can communicate with each other over the custom bridge network.
 

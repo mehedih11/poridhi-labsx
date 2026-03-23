@@ -2,7 +2,7 @@
 
 This lab provides a step-by-step approach to building a robust CI/CD pipeline for a application using Jenkins, Docker, and Kubernetes. We will automate the entire process, from building the application to deploying it in a **Kubernetes cluster**. The pipeline will leverage Jenkins to build, test, and push the Docker image to DockerHub.
 
-![](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/lab-11.drawio.svg)
+![](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/lab-11.drawio.svg)
 
 Subsequently, **Kubernetes** will manage the deployment of the containerized application, ensuring scalability and reliability. After that we will setup monitoring tools to monitor the application. By the end of this guide, you will have a fully functional CI/CD pipeline that can be triggered with every code commit, providing a seamless path from development to production also with **monitoring** tools.
 
@@ -10,7 +10,7 @@ Subsequently, **Kubernetes** will manage the deployment of the containerized app
 
 We will create AWS infrastructure to setup a Jenkins server and k3s cluster. We will be using Pulumi to create the infrastructure. Here is the architecture of the infrastructure.
 
-![](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/infra.drawio.svg)
+![](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/infra.drawio.svg)
 
 **1. Create a Directory for Your Infrastructure**
 
@@ -324,7 +324,7 @@ aws ec2 create-key-pair --key-name jenkins_k3s --output text --query 'KeyMateria
 chmod 400 jenkins_k3s.id_rsa
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-13.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-13.png)
 
 **6. Create a file named `jenkins_install.sh` and add the following content:**
 
@@ -493,7 +493,7 @@ Run the following command to create the infrastructure:
 pulumi up --yes
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-19.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-19.png)
 
 ## SSH into the Jenkins Master
 
@@ -503,7 +503,7 @@ After the infrastructure is created, SSH into the Jenkins Master using the follo
 ssh jenkins-master
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-15.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-15.png)
 
 
 You can optionally set the hostname of the Jenkins Master to `jenkins-master` by running the following command:
@@ -555,20 +555,20 @@ Goto **Manage Jenkins** > **Manage Tools** > **Install Tools** and install the f
     - Name: `NODE-18`
     - Version: `18.x`
 
-    ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-6.png)
+    ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-6.png)
 
 - **JDK**:
     - Name: `JDK-17`
     - Version: `17.0.8.1+1`
 
-    ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-7.png)
+    ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-7.png)
 
 
 - **Docker**:
     - Name: `Docker`
     - Version: `latest`
 
-    ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-8.png)
+    ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-8.png)
 
 ## Integrate DockerHub
 
@@ -577,7 +577,7 @@ Goto **Manage Jenkins** > **Manage Tools** > **Install Tools** and install the f
 - Go to DockerHub > **Account Settings** > **Security** > **Access Tokens**.
 - Generate a new token and copy it.
 
-    ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-9.png)
+    ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-9.png)
 
 **2. Add DockerHub credentials to Jenkins:**
 
@@ -590,7 +590,7 @@ Goto **Manage Jenkins** > **Manage Tools** > **Install Tools** and install the f
     - ID: `dockerhub`.
     - Description: `DockerHub Credentials`.
 
-     ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-16.png)
+     ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-16.png)
 
 
 ## Build a simple React application
@@ -757,13 +757,13 @@ Now, we will create a Jenkins pipeline to deploy a simple React application to a
 - Name: `Sample-cicd`.
 - Type: `Pipeline`.
 
-    ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-11.png)
+    ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-11.png)
 
 **2. Configure the pipeline script:**
 
 Check the discard old build option.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-12.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-12.png)
 
 Add the following script to the pipeline:
 
@@ -912,7 +912,7 @@ Builds a Docker image for the application and pushes it to DockerHub.
 
 Check the `Sample-cicd` job in the Jenkins dashboard and click on `Build Now` to trigger the pipeline.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-17.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-17.png)
 
 Monitor the build and check the logs to ensure the Docker image is built and pushed successfully. Check console output to ensure the Docker image is built and pushed successfully.
 
@@ -929,7 +929,7 @@ Now, we will deploy the application to the Kubernetes cluster. To do that, we ne
    - Kubernetes CLI
    - Pipeline: Kubernetes
 
-   ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-18.png)
+   ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-18.png)
 
 ### 2. Configure Kubernetes Credentials in Jenkins
 
@@ -948,7 +948,7 @@ Now, we will deploy the application to the Kubernetes cluster. To do that, we ne
     - Upload the downloaded `config` file.
 - Click **OK**.
 
-    ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-20.png)
+    ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-20.png)
 
 ### 3. Access the k3s cluster from the Jenkins instance
 
@@ -1235,7 +1235,7 @@ Retrieves debug information from the Kubernetes cluster:
 We will setup a webhook in GitHub to trigger the Jenkins pipeline when there are changes in the GitHub repository.
 
 
-![](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/webhook.drawio.svg)
+![](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/webhook.drawio.svg)
 
 **1. Enable webhooks in Jenkins:**
 - Navigate to the pipeline configuration.
@@ -1249,11 +1249,11 @@ We will setup a webhook in GitHub to trigger the Jenkins pipeline when there are
      - **Content type**: `application/json`
    - Click **Add webhook**.
 
-   ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-25.png)
+   ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-25.png)
 
    - Check the webhook status
 
-   ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-26.png)
+   ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-26.png)
 
 ### 5. Push Changes to Trigger the Pipeline
 
@@ -1271,9 +1271,9 @@ We will setup a webhook in GitHub to trigger the Jenkins pipeline when there are
    - The job should trigger automatically upon detecting changes in the GitHub repository.
    - Verify the pipeline's success in Jenkins.
 
-   ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-22.png)
+   ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-22.png)
 
-   ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-23.png)
+   ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-23.png)
 2. Validate the DockerHub image:
    - Ensure the new image is uploaded to your DockerHub repository.
 3. Check the application in Kubernetes:
@@ -1290,11 +1290,11 @@ We will setup a webhook in GitHub to trigger the Jenkins pipeline when there are
 
 Console logs:
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-21.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-21.png)
 
 Deployed application:
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-24.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2011/images/image-24.png)
 
 ### Monitoring the Kubernetes Cluster
 
@@ -1306,7 +1306,7 @@ Helm is a package manager for Kubernetes that simplifies application deployment.
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2012/images/image.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2012/images/image.png)
 
 
 This script downloads and installs Helm 3, the latest version, onto your system. After installation, you can verify the Helm installation by running:
@@ -1349,7 +1349,7 @@ kubectl get nodes
 
 Grafana is a visualization and monitoring tool. To deploy it in your Kubernetes cluster:
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2012/images/image-1.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2012/images/image-1.png)
 
 1. Use Helm to install or upgrade Grafana:
 
@@ -1403,12 +1403,12 @@ Grafana supports importing pre-configured dashboards to visualize cluster metric
 2. Use the dashboard ID `15282` (or any desired dashboard ID) to import a pre-built Kubernetes monitoring dashboard.
 3. Click **Load**, configure the Prometheus data source, and then click **Import**.
 
-    ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2012/images/image-6.png)
-    ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2012/images/image-7.png)
+    ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2012/images/image-6.png)
+    ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2012/images/image-7.png)
 
 Your dashboard is now ready, displaying key metrics for monitoring your Kubernetes cluster.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2012/images/image-9.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2012/images/image-9.png)
 
 ## Conclusion
 

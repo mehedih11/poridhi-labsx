@@ -2,7 +2,7 @@
 
 This lab guides you through the process of automating the deployment of an AWS VPC, Subnet, Internet Gateway, Route Table, Security Group, Key Pair, and EC2 Instance using Ansible.
 
-![alt text](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/36ad07672cb75056554d1ef6bf94669bc749c085/Poridhi%20Labs/Ansible%20Labs/lab%2010/images/arch.drawio.svg)
+![alt text](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/36ad07672cb75056554d1ef6bf94669bc749c085/Poridhi%20Labs/Ansible%20Labs/lab%2010/images/arch.drawio.svg)
 
 ## Project Structure
 
@@ -30,7 +30,7 @@ Check the Ansible version to verify the installation:
 ansible --version
 ```
 
-![Check Ansible Version](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2001/images/image-1.png?raw=true)
+![Check Ansible Version](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2001/images/image-1.png?raw=true)
 
 ## Step by step guide
 
@@ -49,7 +49,7 @@ ansible --version
 
     Botocore is the low-level foundation library for Boto3. It provides the core functionality for making raw HTTP requests to AWS services. While Boto3 is built on top of Botocore, the latter can be used independently for more granular control over AWS interactions.
 
-    ![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2009/images/image-1.png?raw=true)
+    ![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2009/images/image-1.png?raw=true)
 
 - Install amazon aws collection
 
@@ -57,7 +57,7 @@ ansible --version
     ansible-galaxy collection install amazon.aws
     ```
 
-    ![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2009/images/image-2.png?raw=true)
+    ![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2009/images/image-2.png?raw=true)
 ## Step 02: Set Up AWS Configuration
 
 Now We need to configure our AWS credentials. We can do this by using the AWS credentials file.
@@ -85,7 +85,7 @@ Now We need to configure our AWS credentials. We can do this by using the AWS cr
 
 - You can see the AWS CLI configuration file located at `~/.aws/config` and `~/.aws/credentials`.
 
-    ![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2009/images/image-3.png?raw=true)
+    ![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2009/images/image-3.png?raw=true)
 
 
 ## Step 03: Create the key pair for the EC2 instance
@@ -97,7 +97,7 @@ Now We need to configure our AWS credentials. We can do this by using the AWS cr
     ```
     This will create a keypair( public-key and private-key ) in the `~/.ssh/` directory.
 
-    ![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2009/images/image-4.png?raw=true)
+    ![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2009/images/image-4.png?raw=true)
 
     We will use the public-key for instance creation and private key for ssh.
 
@@ -249,7 +249,7 @@ This Ansible playbook is designed to automate the creation of AWS infrastructure
    ```
     This command will execute the playbook and create the necessary resouces. Check any error while running the playbook. If everything is alright, you will get output something like this:
 
-    ![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2009/images/image-5.png?raw=true)
+    ![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2009/images/image-5.png?raw=true)
 
 ## Verification
 
@@ -257,11 +257,11 @@ This Ansible playbook is designed to automate the creation of AWS infrastructure
 
     - Check VPC:
 
-        ![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2009/images/image-7.png?raw=true)
+        ![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2009/images/image-7.png?raw=true)
 
     - Check ec2 instance:
 
-       ![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2009/images/image-6.png?raw=true)
+       ![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2009/images/image-6.png?raw=true)
 
 
 - As we have the `private key` in our local machine, we can ssh into the instance that we have created:
@@ -270,7 +270,7 @@ This Ansible playbook is designed to automate the creation of AWS infrastructure
     ssh -i ~/.ssh/id_rsa ubuntu@public_instance_ip
     ```
 
-    ![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2009/images/image-8.png?raw=true)
+    ![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Ansible%20Labs/lab%2009/images/image-8.png?raw=true)
 
 So, we have successfully completed the task.
 

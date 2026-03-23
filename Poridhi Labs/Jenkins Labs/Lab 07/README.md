@@ -14,15 +14,15 @@ The example Java application is a simple Java application that outputs "Hello wo
 
 Here is the graphical representation of what we will do in this lab.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/lab-7-arch.drawio.svg)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/lab-7-arch.drawio.svg)
 
 ## Prerequisites
 
 1. Ensure your Jenkins server is up and running.
 2. Ensure Jenkins agent node connected to the controller and online.
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-10.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-10.png)
 3. Java is installed in the Agent node. Check it by running `java --version`. Make sure to have the same version of java both in Jenkins controller node and agent node.
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image.png)
 
 
 ### Install and Run Jenkins Server
@@ -139,16 +139,16 @@ sudo chmod +x jenkins-install.sh
 
 This lab is intended to be run on a `Poridhi's VM`. To access the Jenkins dashboard, We need to create a Load Balancer. First Go to the `Load Balancer` section and create a Load Balancer using the VM's private IP and port `8081`.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2002/images/image-20.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2002/images/image-20.png)
 
 Then access the Jenkins dashboard using the Load Balancer's URL. Use the credentials `admin` and the password you received from the Jenkins installation script.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2002/images/image-21.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2002/images/image-21.png)
 
 
 #### Jenkins login page
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2002/images/image-22.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2002/images/image-22.png)
 
 
 ## Step-by-Step Guide
@@ -160,7 +160,7 @@ Then access the Jenkins dashboard using the Load Balancer's URL. Use the credent
 - In the **Available** tab, search for `Maven Integration (Build Tools)`.
 - Install this plugin.
 
-   ![Install Maven Integration Plugin](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-4.png?raw=true)
+   ![Install Maven Integration Plugin](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-4.png?raw=true)
 
 **2. Configure Maven Installation:**
 - Go to **Manage Jenkins** -> **Global Tool Configuration**.
@@ -169,7 +169,7 @@ Then access the Jenkins dashboard using the Load Balancer's URL. Use the credent
    - Give it a name, e.g., `Maven-jenkins`.
    - Select the required version and save.
 
-   ![Configure Maven Installation](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-5.png?raw=true)
+   ![Configure Maven Installation](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-5.png?raw=true)
 
 ### Step 2: Create a Jenkins Job
 
@@ -177,11 +177,11 @@ Then access the Jenkins dashboard using the Load Balancer's URL. Use the credent
 2. Enter a name for your job, e.g., "**Simple Java Maven App**", and select **Freestyle project**.
 3. Click **OK** to create the job.
 
-   ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-1.png)
+   ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-1.png)
 
 4. Mark `Restrict where this project can be run` and add the Label of your agent node.
 
-   ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-2.png)
+   ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-2.png)
 
 5. In the **Source Code Management** section, select **Git** and enter the URL of the GitHub repository:
 
@@ -189,18 +189,18 @@ Then access the Jenkins dashboard using the Load Balancer's URL. Use the credent
    https://github.com/Konami33/simple-java-maven-app
    ```
 
-   ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-3.png)
+   ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-3.png)
 
 5. Save the configuration and build the job. This will clone the repository from GitHub.
 
-   ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-4.png)
+   ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-4.png)
 
 ### Step 3: Configure the Build Step
 
 1. Go to the **Configure** section of the job.
 2. In the **Build** section, click **Add build step** and select **Invoke top-level Maven targets**.
 
-   ![Add Build Step](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-6.png?raw=true)
+   ![Add Build Step](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-6.png?raw=true)
 
 3. Select your `Maven Version`.
 
@@ -210,7 +210,7 @@ Then access the Jenkins dashboard using the Load Balancer's URL. Use the credent
    -B -DskipTests clean package
    ```
 
-   ![Configure Maven Goals](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-7.png?raw=true)
+   ![Configure Maven Goals](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-7.png?raw=true)
 
 ### Step 4: Configure the Test Step
 
@@ -223,7 +223,7 @@ Then access the Jenkins dashboard using the Load Balancer's URL. Use the credent
    test
    ```
 
-   ![Configure Test Goals](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-9.png?raw=true)
+   ![Configure Test Goals](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-9.png?raw=true)
 
 
 ### Step 5: Deploy the JAR File
@@ -238,7 +238,7 @@ Then access the Jenkins dashboard using the Load Balancer's URL. Use the credent
 
    Replace `<path_to_your_jar_file>` with the path to your JAR file, typically found in `/var/jenkins_home/workspace/your_job_name/target/`.
 
-   ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-5.png)
+   ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-5.png)
 
 ### Step 6: Build the job
 
@@ -246,15 +246,15 @@ Build the job and check the output console for any error.
 
 **build step:**
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-6.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-6.png)
 
 **test step:**
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-7.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-7.png)
 
 **deploy step:**
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-8.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-8.png)
 
 ### Step 7: Visualize the Build Results
 
@@ -276,7 +276,7 @@ Build the job and check the output console for any error.
 
 4. Save the configuration and build the job. This will publish the test results on the Jenkins dashboard with graphical representations such as graphs and charts.
 
-   ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-9.png)
+   ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Jenkins%20Labs/Lab%2007/images/image-9.png)
 
 ## Conclusion
 

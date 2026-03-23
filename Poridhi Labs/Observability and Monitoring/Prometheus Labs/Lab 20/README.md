@@ -7,7 +7,7 @@ Relabeling modifies the labels attached to the collected metrics, enabling you t
 
 We'll install Prometheus, configure it to scrape metrics from a dynamically updated source using a JSON file, and experiment with different relabeling strategies to adjust the labels for practical use.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/87e2faa5791ef084229170ef8156365973343c89/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2020/images/banner.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/87e2faa5791ef084229170ef8156365973343c89/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2020/images/banner.svg)
 
 ## **Objective**
 By the end of this lab, you will:
@@ -182,17 +182,17 @@ Find the `eth0` IP address for the `Poridhi's VM` currently you are running by u
 ```bash
 ifconfig
 ```
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/lab-59.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/lab-59.png?raw=true)
     
 Go to Poridhi's `LoadBalancer`and Create a `LoadBalancer` with the `eht0` IP and port `9090`.
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/new-11.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/new-11.png?raw=true)
 
 By using the Provided `URL` by `LoadBalancer`, you can access the Prometheus web interface from any browser.
 
 Click on the **"Status"** tab in the top menu and select **"Service Discovery"** in Prometheus GUI. Here you will see `node_exporter`, when you click on it you will see the `Discovered Labels` and `Target Labels`.
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2020/images/image.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2020/images/image.png?raw=true)
 
 ## **Relabeling In Prometheus**
 
@@ -226,7 +226,7 @@ sudo systemctl restart prometheus
 
 Now in the Prometheus `Service Discovery` tab, you will see the `host` label instead of the `instance` label.
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2020/images/1.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2020/images/1.png?raw=true)
 
 ### **2. Changing Label Value Based on a Condition**
 
@@ -258,7 +258,7 @@ sudo systemctl restart prometheus
 
 Now in the Prometheus `Service Discovery` tab, you will see the `metric_type` label instead of the `type` label.
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2020/images/2.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2020/images/2.png?raw=true)
 
 ### **3. Combining Multiple Labels into a Single Label**
 
@@ -288,7 +288,7 @@ sudo systemctl restart prometheus
 
 Now in the Prometheus `Service Discovery` tab, you will see the `region_environment` label instead of the `region` and `environment` labels.
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2020/images/3.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2020/images/3.png?raw=true)
 
 ### **4. Modifying Label Values Based on Conditions (Environment Change)**
 
@@ -320,7 +320,7 @@ sudo systemctl restart prometheus
 
 Now in the Prometheus `Service Discovery` tab, you will see the `region` label instead of the `region` label.
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2020/images/4.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2020/images/4.png?raw=true)
 
 ### **5. Keeping Only Specific Labels (Filter Out Non-Matching Labels)**
 
@@ -352,7 +352,7 @@ sudo systemctl restart prometheus
 
 Now in the Prometheus `Service Discovery` tab, you will see the targets where the `environment` label is set to `production`.
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2020/images/5.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2020/images/5.png?raw=true)
 
 ### **6. Dropping Labels Based on a Condition**
 
@@ -384,7 +384,7 @@ sudo systemctl restart prometheus
 
 Now in the Prometheus `Service Discovery` tab, you will see the targets where the `type` label is not set to `cache`.
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2020/images/6.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2020/images/6.png?raw=true)
 
 ### **Conclusion**
 

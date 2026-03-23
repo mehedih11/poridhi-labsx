@@ -1,7 +1,7 @@
 # Customer Churn Prediction Tracking with MLflow
 This project implements a comprehensive customer churn prediction system using seven different machine learning models. The project uses telco customer churn data to predict whether a customer will discontinue their service. We integrate MLflow for experiment tracking, PostgreSQL for metadata storage, and Amazon S3 for artifact storage.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/3265abfa3be556d1dcbfa3b2e8c9240bd6a065d9/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/mlops-lab-09.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/3265abfa3be556d1dcbfa3b2e8c9240bd6a065d9/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/mlops-lab-09.svg)
 
 ## Table of Contents
 - [Overview](#overview)
@@ -36,7 +36,7 @@ customer-churn-mlops/
 ```bash
 aws configure
 ```
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/aws.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/aws.png?raw=true)
 
 ### Create S3 Bucket
 ```bash
@@ -53,7 +53,7 @@ aws s3api get-bucket-versioning --bucket <unique-bucket-name>
 
 In Poridhi's VSCode server, create a new Jupyter notebook and select on right top corner of the screen `select kernal` and choose `python`.
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/kernal.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/kernal.png?raw=true)
 
 ### Docker Configuration
 
@@ -142,15 +142,15 @@ To access the MLflow UI with poridhi's Loadbalancer, use the following steps:
   ```bash
   ifconfig
   ```
-  ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/lab-59.png?raw=true)
+  ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/lab-59.png?raw=true)
     
 - Go to Poridhi's `LoadBalancer`and Create a `LoadBalancer` with the `eht0` IP and port `5000`.
 
-  ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/lb.png?raw=true)
+  ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/lb.png?raw=true)
 
 - By using the Provided `URL` by `LoadBalancer`, you can access the MLflow UI from any browser.
 
-   ![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/mlflow.png?raw=true)
+   ![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/mlflow.png?raw=true)
 
 ## Data Processing & Visualization
 
@@ -433,7 +433,7 @@ print("Testing set shape:", X_test.shape)
 
 For training the Customer Churn Prediction model, we will use 7 different ML models. For each model we will track various parameters, metrics, and artifacts with best practices of MLOps.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/752b0f1d4da0f7e8b6ecd2088bc27cb47b3accc7/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/models.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/752b0f1d4da0f7e8b6ecd2088bc27cb47b3accc7/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/models.svg)
 
 ### Logistic Regression  
  
@@ -1023,21 +1023,21 @@ print(f"Registered model version: {best_model_version.version}")
 1. Navigate to the MLflow UI with url provided by the `Poridhi's Loadbalancer`.
 2. Navigate to "Experiments" tab and select "Customer Churn Prediction-lab-01"
 
-    ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/1.png?raw=true)
+    ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/1.png?raw=true)
 
 3. For each model run, verify the parameters, metrics, and artifacts.For example we can see the overview, metrics & artifacts for `SVM`:
 
     **Overview of `SVM`**:
 
-    ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/svm-1.png?raw=true)
+    ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/svm-1.png?raw=true)
 
     **Model Metrics**:
 
-    ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/svm-2.png?raw=true)
+    ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/svm-2.png?raw=true)
 
     **Artifacts**:
 
-    ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/svm-3.png?raw=true)
+    ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/svm-3.png?raw=true)
 
     By following the above steps, you can verify the parameters, metrics, and artifacts for other models as well.
 
@@ -1045,19 +1045,19 @@ print(f"Registered model version: {best_model_version.version}")
 
 In the MLflow UI, navigate to "Model Comparison" experiment and verify the comparison plot and CSV files with accuracy metrics.
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/image.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/image.png?raw=true)
 
 ### Register Best Model Verification
 
 In the MLflow UI, navigate to "Model Registry" and verify the registered model and its version in the "Production" stage.
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/bestmodel.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/bestmodel.png?raw=true)
 
 ### S3 Artifact Verification
 
 Go to AWS Console and navigate to S3 bucket `<your-bucket-name>` to verify the artifacts.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/s3.png?raw=true)
+![alt text](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/s3.png?raw=true)
 
 For each model run, you should see the artifacts in the S3 bucket.
 
@@ -1076,7 +1076,7 @@ For each model run, you should see the artifacts in the S3 bucket.
     SELECT * FROM experiments;
     ```
 
-    ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/psql.png?raw=true)
+    ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/psql.png?raw=true)
 
 3. View runs and metrics:
     ```sql
@@ -1091,7 +1091,7 @@ For each model run, you should see the artifacts in the S3 bucket.
     ORDER BY r.start_time DESC;
     ```
 
-    ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/psql-2.png?raw=true)
+    ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/MLOps%20Lab/Lab%2009/images/psql-2.png?raw=true)
 
 
 ## Conclusion

@@ -2,7 +2,7 @@
 
 In this lab, we will address the issues of pod-to-pod communication across nodes and enable external access to the internet for the pods. We will set up routes for pod subnets, adjust iptables rules, and use NAT (Network Address Translation) to allow outgoing traffic from the pods to external networks.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/architecture.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/architecture.svg)
 
 ## **Objectives**
 
@@ -27,7 +27,7 @@ If you don’t have the `AWS CLI` and `Terraform` installed, follow the official
 
 We will provision the necessary infrastructure for our Kubernetes cluster using **Terraform**.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/infra.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/infra.svg)
 
 ### **AWS CLI Configuration**
 
@@ -37,7 +37,7 @@ Configure your AWS CLI by running the following command:
 aws configure
 ```
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/1.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/1.png)
 
 This will prompt you to enter:
 
@@ -289,7 +289,7 @@ output "eni_ids" {
    terraform apply
    ```
 
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/output.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/output.png)
 
 Terraform will create the necessary infrastructure, and it will output the public IPs of the EC2 instances and the path to the private key (`cni.pem`). You can use this information to SSH into the instances.
 
@@ -305,7 +305,7 @@ Once the instances are provisioned, SSH into the **master** and **worker** nodes
    ```bash
    ssh -i cni.pem ubuntu@<master-public-ip>
    ```
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/m.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/m.png)
 
 2. **Initialize the Kubernetes Cluster on the Master Node**:
 
@@ -313,7 +313,7 @@ Once the instances are provisioned, SSH into the **master** and **worker** nodes
    sudo kubeadm init --pod-network-cidr=10.244.0.0/16
    ```
 
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/10.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/10.png)
 
    Kubernetes will provide a `join command` after initialization. Note this down to connect the worker nodes to the cluster.
 
@@ -334,13 +334,13 @@ Once the instances are provisioned, SSH into the **master** and **worker** nodes
    ```bash
    ssh -i cni.pem ubuntu@<worker-1-public-ip>
    ```
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/w-1.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/w-1.png)
   
    ```bash
    sudo kubeadm join <master-ip>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>
    ```
 
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/11.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/11.png)
 
    For **worker-2**:
 
@@ -348,13 +348,13 @@ Once the instances are provisioned, SSH into the **master** and **worker** nodes
    ssh -i cni.pem ubuntu@<worker-2-public-ip>
    ```
 
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/w-2.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/w-2.png)
 
    ```bash
    sudo kubeadm join <master-ip>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>
    ```
 
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/12.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/12.png)
 
 5. **Verify Cluster Status**:
 
@@ -364,7 +364,7 @@ Once the instances are provisioned, SSH into the **master** and **worker** nodes
    kubectl get nodes
    ```
 
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/13.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/13.png)
 
 ## **Setting Up Network Interfaces**
 
@@ -436,7 +436,7 @@ Run the following command to check if the nodes are in a **Ready** state:
 ```bash
 kubectl get nodes
 ```
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/17.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/17.png)
 
 ## **Implementing the Bash CNI Plugin for IP Assignment**
 
@@ -639,7 +639,7 @@ We will now create the Bash CNI plugin script to dynamically assign IP addresses
    kubectl get pods -o wide
    ```
 
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/18.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/18.png)
 
    The pods should now have dynamically assigned IP addresses from the `10.244.x.x` subnet, confirming the successful implementation of IP assignment.
 
@@ -683,7 +683,7 @@ We will now create the Bash CNI plugin script to dynamically assign IP addresses
 
    The ping will likely fail because we haven't set up NAT or proper routing to external networks.
 
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/ping.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/ping.png)
 
 **Note**: At this stage, the pods can only communicate with the host (the `cni0` bridge) because the necessary routing and forwarding rules are not in place. We will address these issues in the next labs.
 
@@ -697,7 +697,7 @@ When traffic is forwarded between pods, the Linux kernel applies the **FORWARD**
 sudo iptables -S FORWARD
 ```
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/40.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/40.png)
 
 This chain handles all packets that need to be forwarded, such as traffic between network namespaces (as with pods). The key issue here is that the default **FORWARD** chain policy is set to `DROP` by Docker for security reasons. As a result, any traffic between pods on the same host is dropped by default unless specific rules are in place to allow it.
 
@@ -723,7 +723,7 @@ Then ping the `nginx-worker-1` with its IP
 ```bash
 ping  10.244.1.2 -c 2
 ```
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/41.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/41.png)
 
 ## **Fixing External Access Using NAT**
 
@@ -774,7 +774,7 @@ Then ping google dns `8.8.8.8`
 ping  8.8.8.8 -c 2
 ```
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/42.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/42.png)
 
 The ping should now be successful, confirming that the pods can access external networks.
 
@@ -782,7 +782,7 @@ The ping should now be successful, confirming that the pods can access external 
 
 To enable pod-to-pod communication across different worker nodes in the Kubernetes cluster, you need to configure routes for each worker node’s pod CIDR block. This will allow traffic between pods residing on different nodes to traverse the network properly. The process involves adding routes for each node's pod CIDR block and associating them with the network interfaces of the respective  nodes.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/architecture.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/architecture.svg)
 
 In our terraform `main.tf` we already included that part
 
@@ -822,7 +822,7 @@ resource "aws_route" "pod_routes" {
 
 We can verify the successfull creation of routes in AWS Console by visiting the route table (`my-rt`) ,we created with terraform.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/44.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/44.png)
 
 ### Why This is Necessary:
 
@@ -850,7 +850,7 @@ We also ping `nginx-worker-2`
 ping 10.244.2.2 -c 5
 ```
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/43.png)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-5/images/43.png)
 
 Both are successfull.Which suggest that our connection is working properly.
 

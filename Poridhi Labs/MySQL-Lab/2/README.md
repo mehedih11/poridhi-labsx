@@ -2,7 +2,7 @@
 
 This lab walks you through setting up a Flask application that connects to a MySQL server running in a Docker container. You'll learn how to create and run the Flask app, install the required packages, and set up a MySQL database with a dedicated user.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/MySQL-Lab/2/images/image-6.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/MySQL-Lab/2/images/image-6.png)
 
 ## Run the MySQL container
 
@@ -36,7 +36,7 @@ These SQL commands are executed within the MySQL client to:
 2. Grant all privileges on all databases and tables to `newuser` with the ability to grant those privileges to others.
 3. Refresh the MySQL privilege tables to ensure the changes take effect.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/MySQL-Lab/2/images/image.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/MySQL-Lab/2/images/image.png)
 
 ## Set Up Python and a Virtual Environment
 
@@ -138,7 +138,7 @@ curl http://127.0.0.1:5000
 
 We may get an error as follows.
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/MySQL-Lab/2/images/image-1.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/MySQL-Lab/2/images/image-1.png)
 
 Seems like there is no database named `mydatabase`. Let's solve the issue.
 
@@ -152,7 +152,7 @@ mysql -h 127.0.0.1 -u root -proot
 SHOW DATABASES;
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/MySQL-Lab/2/images/image-2.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/MySQL-Lab/2/images/image-2.png)
 
 ## Install MySQL Client
 
@@ -184,7 +184,7 @@ FLUSH PRIVILEGES;
 ```
 
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/MySQL-Lab/2/images/image-3.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/MySQL-Lab/2/images/image-3.png)
 
 ## **Run the Flask Application again**
 
@@ -192,7 +192,7 @@ FLUSH PRIVILEGES;
 flask run
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/MySQL-Lab/2/images/image-4.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/MySQL-Lab/2/images/image-4.png)
 
 ## Verify the Connection
     
@@ -200,7 +200,7 @@ flask run
 curl http://127.0.0.1:5000
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/MySQL-Lab/2/images/image-5.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/MySQL-Lab/2/images/image-5.png)
     
 
 ### Notes:

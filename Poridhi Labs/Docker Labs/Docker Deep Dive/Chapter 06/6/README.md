@@ -81,7 +81,7 @@ In the context of Docker, "`architecture`" refers to CPU architecture, such as x
 
 To address the challenges posed by diverse platforms and architectures, Docker introduced multi-architecture images. These images enable a single image tag, like `golang:latest`, to encompass versions for multiple platforms and architectures. With multi-architecture images, users can simply execute a `docker pull golang:latest` command from any platform or architecture, and Docker automatically retrieves the appropriate image variant.
 
-![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20Deep%20Dive/Chapter%2006/6/images/image.png?raw=true)
+![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20Deep%20Dive/Chapter%2006/6/images/image.png?raw=true)
 
 To facilitate this, Docker Registry API incorporates two essential constructs:
 

@@ -22,7 +22,7 @@ This lab will provide you with hands-on experience in modifying these attributes
 
 ## Task
 
-![alt text]( https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20in%20Action/Chapter%2007/4/images/image.png?raw=true)
+![alt text]( https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Docker%20Labs/Docker%20in%20Action/Chapter%2007/4/images/image.png?raw=true)
 
 
 **Create a Container with Environment Variables**

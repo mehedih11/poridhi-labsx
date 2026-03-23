@@ -2,7 +2,7 @@
 
 In this lab, we will set up a Kubernetes cluster on AWS EC2 instances using Terraform to provision the infrastructure. We will install Docker, **Kubeadm**, **Kubelet**, and **Kubectl** on the master and worker nodes. Then, we will initialize the Kubernetes cluster on the master node and join the worker nodes to the cluster.
 
-![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/21.svg)
+![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/21.svg)
 
 ## **Objective**
 
@@ -38,7 +38,7 @@ This command prompts you to enter:
 - **Default region** (e.g., `ap-southeast-1`)
 - **Output format** (e.g., `json`)
 
-  ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/1.png)
+  ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/1.png)
 
 ## **Create the Infrastructure with Terraform**
 
@@ -231,7 +231,7 @@ This command prompts you to enter:
       terraform apply
       ```
    
-      ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/outputs.png)
+      ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/outputs.png)
    
       This will create the EC2 instances and configure the hostnames (`master`, `worker-1`, `worker-2`) as per the user data provided in `main.tf`.
    
@@ -245,7 +245,7 @@ This command prompts you to enter:
    ```bash
    ssh -i cni.pem ubuntu@<master-instance-public-ip>
    ```
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/m.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/m.png)
 
 2. **Install Docker**
 
@@ -288,7 +288,7 @@ This command prompts you to enter:
    ```bash
    sudo kubeadm init --pod-network-cidr=10.244.0.0/16
    ```
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/10.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/10.png)
 
    **Note:** After running this command, Kubernetes will provide a `join command` that is needed to connect the worker nodes to the cluster. `Note down this join command` as you will use it later to join the worker nodes.
 
@@ -309,7 +309,7 @@ This command prompts you to enter:
    ```bash
    kubectl get nodes
    ```
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/21.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/21.png)
 
    The master node will show a **NotReady** status because the networking setup is not yet complete, but the master is initialized.
 
@@ -322,7 +322,7 @@ This command prompts you to enter:
    ```bash
    ssh -i cni.pem ubuntu@<worker-1-instance-public-ip>
    ```
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/w-1.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/w-1.png)
 
 1. **Install Docker and Kubernetes components**
 
@@ -352,7 +352,7 @@ This command prompts you to enter:
       sudo kubeadm join <master-ip>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>
       ```
 
-      ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/11.png)
+      ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/11.png)
    
 ### **SSH into worker node 2**
 
@@ -361,7 +361,7 @@ This command prompts you to enter:
    ```bash
    ssh -i cni.pem ubuntu@<worker-2-instance-public-ip>
    ```
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/w-2.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/w-2.png)
 
 1. **Install Docker and Kubernetes components**
 
@@ -390,7 +390,7 @@ This command prompts you to enter:
       sudo kubeadm join <master-ip>:6443 --token <token> --discovery-token-ca-cert-hash sha256:<hash>
       ```
 
-      ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/12.png)
+      ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/12.png)
 
 ## **Verify the Cluster Setup**
 1. **Check the status of the nodes**
@@ -401,7 +401,7 @@ This command prompts you to enter:
    kubectl get nodes
    ```
 
-   ![](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/13.png)
+   ![](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/c3f77ff15cea059b33ab1fee2c4441d9b0a90987/Poridhi%20Labs/Kubernetes%20Tasks/Custom%20CNI%20Plugins%20in%20Kubernetes/Lab-2/images/13.png)
 
    As you can see from the output, both master and worker nodes are currently in the “NotReady” state. This is expected, because we haven’t configured any networking plug-in yet. If you try to deploy a pod at this time, your pod will forever hang in the “Pending” state, because the Kubernetes schedule will not be able to find any “Ready” node for it.
 ## **Summary**

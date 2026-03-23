@@ -2,7 +2,7 @@
 
 Monitoring applications is crucial for understanding their performance and behavior. Prometheus provides various types of metrics, such as Counters, Gauges, Histograms, and Summaries, to collect and analyze data. A Gauge is used to measure values that can increase or decrease over time, such as CPU usage, memory usage, or request latency. In this lab, we will create a simple Node.js application that uses a Gauge to track the latency of requests to different endpoints.
 
-![alt text](https://raw.githubusercontent.com/poridhiEng/poridhi-labs/986c30528324f6cbcb24f08a34d155a8fcdb6582/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2015/images/logo.svg)
+![alt text](https://raw.githubusercontent.com/mehedih11/poridhi-labsx/986c30528324f6cbcb24f08a34d155a8fcdb6582/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2015/images/logo.svg)
 
 ### Scenario
 You are managing a web application and want to monitor the latency of HTTP requests. Tracking request latency can help identify performance bottlenecks and understand how different endpoints respond under varying loads. This lab will guide you through setting up a Node.js application that exposes a Gauge metric for request latency and configuring Prometheus to monitor the application.
@@ -193,17 +193,17 @@ project_root/
     ```bash
     ifconfig
     ```
-    ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/lab-59.png?raw=true)
+    ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/lab-59.png?raw=true)
     
    - Go to Poridhi's `LoadBalancer`and Create a `LoadBalancer` with the `eht0` IP and port `9090`.
 
-    ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/new-11.png?raw=true)
+    ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2005/images/new-11.png?raw=true)
 
    - By using the Provided `URL` by `LoadBalancer`, you can access the Prometheus web interface from any browser.
 
    -  Click on the **"Status"** tab in the top menu and select **"Targets"** in Prometheus GUI.
 
-      ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2015/images/9.png?raw=true)
+      ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2015/images/9.png?raw=true)
       
       You should see a target named `nodejs_app` with the URL `http://localhost:8000/metrics`. The `UP` status indicates that the Node.js app is successfully running and scraping metrics.
    - You can also expose the nodejs_app application by using the `Poridhi's` `LoadBalancer` similarly to the above steps.(Use the same `eth0` IP and port `8000`).To generate the metrics, use this routes and hit them multiple times `/`,`/about`.
@@ -215,21 +215,21 @@ project_root/
    ```promql
    http_request_latency_seconds
    ```
-   ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2015/images/21.png?raw=true)
+   ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2015/images/21.png?raw=true)
    - Returns the current value of the `http_request_latency_seconds` Gauge, which indicates the latest measured latency.
 
 - **Average Latency Over Time**:
    ```promql
    avg_over_time(http_request_latency_seconds[5m])
    ```
-   ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2015/images/22.png?raw=true)
+   ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2015/images/22.png?raw=true)
    - Calculates the average request latency over the last 5 minutes.
 
 - **Maximum Latency Observed**:
    ```promql
    max_over_time(http_request_latency_seconds[5m])
    ```
-   ![](https://github.com/poridhiEng/poridhi-labs/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2015/images/23.png?raw=true)
+   ![](https://github.com/mehedih11/poridhi-labsx/blob/main/Poridhi%20Labs/Observability%20and%20Monitoring/Prometheus%20Labs/Lab%2015/images/23.png?raw=true)
    - Finds the maximum request latency recorded over the last 5 minutes.
 
 ### Summary

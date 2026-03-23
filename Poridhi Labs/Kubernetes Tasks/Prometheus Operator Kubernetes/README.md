@@ -2,7 +2,7 @@
 
 This lab provides a simplified step-by-step guide for setting up Prometheus Operator in Kubernetes. It includes the setup of `ServiceMonitor` and `PodMonitor` objects for monitoring, deploying Grafana for visualisation.
 
-![](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/Prometheus-operator-2.drawio.svg)
+![](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/Prometheus-operator-2.drawio.svg)
 
 ### Prerequisites
 
@@ -74,7 +74,7 @@ The `--server-side` flag instructs Kubernetes to apply changes using server-side
 
 You can check the created crds:
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-3.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-3.png)
 
 **2. RBAC Configuration:**
 Apply the Role and RoleBinding configurations to ensure proper access control for the Prometheus Operator.
@@ -95,7 +95,7 @@ Check the status of the deployment:
 kubectl get pods -n monitoring
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-4.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-4.png)
 
 You may check the logs of the pod for any misconfiguration.
 
@@ -288,7 +288,7 @@ kubectl apply -f prometheus
 
 **Make sure pods are running:**
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-5.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-5.png)
 
 
 **Access the prometheus UI:**
@@ -300,9 +300,9 @@ kubectl get svc -n monitoring
 kubectl port-forward svc/prometheus-operated 9090 -n monitoring
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-6.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-6.png)
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-7.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-7.png)
 
 ## **Go application**
 
@@ -424,7 +424,7 @@ docker build -t <DOCKERHUB_USERNAME>/<IMAGE_NAME>:<VERSION> .
 docker push <DOCKERHUB_USERNAME>/<IMAGE_NAME>:<VERSION>
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image.png)
 
 > NOTE: Make sure to login to the docker hub.
 
@@ -666,20 +666,20 @@ kubectl apply -f myapp/deploy
 kubectl get all -n staging
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-8.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-8.png)
 
 ## Check prometheus UI for targets and metrics:
 
 First checkout if the targets are expodes correctly:
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-9.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-9.png)
 
 
 lets query some metrics:
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-10.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-10.png)
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-11.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-11.png)
 
 
 ## **Deploy Grafana**
@@ -705,7 +705,7 @@ helm repo update
 helm install grafana grafana/grafana -n monitoring --create-namespace
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-12.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-12.png)
 
 **Expose the Grafana service using Nodeport:**
 
@@ -720,7 +720,7 @@ helm upgrade --install grafana grafana/grafana \
 
 **Create a load balancer with the MasterNode IP and the Nodeport (30080).**
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-14.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-14.png)
 
 
 **Get the admin password to login into Grafana:**
@@ -729,7 +729,7 @@ helm upgrade --install grafana grafana/grafana \
 kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-13.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-13.png)
 
 Use the password and login into Grafana UI.
 
@@ -754,7 +754,7 @@ Let's create a Grafana Dashboard for visualization.
      - Go to **Configuration** > **Data Sources** in the left-hand menu.
      - Click **Add data source**, select **Prometheus**, enter the Prometheus URL (e.g., `http://prometheus-operated.monitoring.svc:9090`), and save the configuration.
 
-     ![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-15.png)
+     ![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-15.png)
 
 **3. PromQL Query**: In the **Query** editor, enter the following PromQL query:
 
@@ -770,7 +770,7 @@ In the **Legend** field, enter:
 {{path}}
 ```
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-16.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/image-16.png)
 
 ### **Customize the Visualization**
 
@@ -819,7 +819,7 @@ In the **Legend** field, enter:
 
 Here is how the panel will look like:
 
-![alt text](https://github.com/poridhiEng/poridhi-labs/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/dash.png)
+![alt text](https://github.com/mehedih11/poridhi-labsx/raw/main/Poridhi%20Labs/Kubernetes%20Tasks/Prometheus%20Operator%20Kubernetes/images/dash.png)
 
 
 ## Conclusion
